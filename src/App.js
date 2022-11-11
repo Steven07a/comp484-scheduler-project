@@ -1,23 +1,66 @@
-import logo from './logo.svg';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet,
+  useNavigate,
+} from "react-router-dom"
+
 import './App.css';
+import Home from "../src/pages/Home"
+import Test from "../src/pages/Test"
+
+const Layout = () => {
+  // uncomment this code if u want to have user auth on all pages that are not login or register
+  // const { currentUser } = useContext(AuthContext);
+  // const navigate = useNavigate();
+
+  // // does a check to see if the user is logged in
+  // if (!currentUser?.username) {
+  //   navigate("/login");
+  // }
+
+  return (
+    <>
+      {/* <Navbar /> */}
+      <Outlet />
+      {/* <Footer /> */}
+    </>
+  );
+};
+
+const router = createBrowserRouter([
+  {
+    // all children of this function will have a navbar and footer around them
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/test",
+        element: <Test />,
+      },
+    ],
+  },
+  // {
+  //   path: "Login",
+  //   element: <Login />,
+  // },
+  // {
+  //   path: "Register",
+  //   element: <Register />,
+  // },
+]);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <RouterProvider router={router}/>
+      </div>
     </div>
   );
 }
