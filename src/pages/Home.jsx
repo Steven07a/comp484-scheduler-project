@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../components/styles.css";
 
 
 function Home() {
   return (
     <>
-      <div>Home</div>
+      <h1>Home</h1>
       {/* shows how to link to different webpages refrences index.js to find the pages */}
-      <Link to={"/Test"}>go to test page</Link>
+      <div class="Links">
+      <Link to={"/Login"}>Go to Login </Link>
+      <br></br>
+      <br></br>
+      <Link to={"/Test"}>Go to test page </Link>
+      </div>
     </>
   );
 }

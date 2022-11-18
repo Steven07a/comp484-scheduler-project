@@ -9,6 +9,7 @@ import {
 import './App.css';
 import Home from "../src/pages/Home"
 import Test from "../src/pages/Test"
+import Login from "../src/pages/Login";
 
 const Layout = () => {
   // uncomment this code if u want to have user auth on all pages that are not login or register
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         path: "/test",
         element: <Test />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      }
     ],
   },
   // {
