@@ -1,29 +1,68 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useContext, useState } from "react";
 import * as Components from "../components/Components"
 import "../components/styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"
+import { AuthContext } from "../context/authContext";
 
-function Login() {
+const Login = () => {
   const [signIn, toggle] = React.useState(true);
+  const [inputs, setInputs] = useState({
+    name:"",
+    email:"",
+    password:"",
+  });
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({
+      ...prev, 
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  // tries to log user in if there is an error return error message
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    try{
+      await login(inputs);
+      // function to move us to another page
+      navigate("/")
+    } catch(err) {
+      console.log(err.response.data);
+    }
+  }
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    console.log("singup is called");
+    try {
+      const res = await axios.post("http://localhost:3001/api/user/register", inputs);
+      //console.log(res);
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+  
   return (
     <Components.Container>
       <Components.SignUpContainer signingIn={signIn}>
         <Components.Form>
           <Components.Title>Create Account</Components.Title>
-          <Components.Input type="text" placeholder="Name" />
-          <Components.Input type="email" placeholder="Email" />
-          <Components.Input type="password" placeholder="Password" />
-          <Components.Button>Sign Up</Components.Button>
+          <Components.Input type="text" placeholder="Name" name="name" onChange={handleChange} />
+          <Components.Input type="email" placeholder="Email" name="email" onChange={handleChange}/>
+          <Components.Input type="password" placeholder="Password" name="password" onChange={handleChange}/>
+          <Components.Button onClick={handleSignUp}>Sign Up</Components.Button>
         </Components.Form>
       </Components.SignUpContainer>
       <Components.SignInContainer signingIn={signIn}>
         <Components.Form>
           <Components.Title>Login</Components.Title>
-          <Components.Input type="email" placeholder="Email" />
-          <Components.Input type="password" placeholder="Password" />
+          <Components.Input type="email" placeholder="Email" name="email" onChange={handleChange}/>
+          <Components.Input type="password" placeholder="Password" name="password" onChange={handleChange}/>
           <Components.Anchor href="#">Forgot your password?</Components.Anchor>
-          <Components.Button onClick={"/Home"}>Sign In</Components.Button>
+          <Components.Button onClick={handleSignIn}>Sign In</Components.Button>
         
         </Components.Form>
       </Components.SignInContainer>
@@ -52,18 +91,5 @@ function Login() {
     </Components.Container>
   );
 }
-function Home() {
-    return (
-      <>
-        <div>Home</div>
-        {/* shows how to link to different webpages refrences index.js to find the pages */}
-        <Link to={"/Test"}>go to test page</Link>
-      </>
-    );
-  }
-<Link to={"/Test"}>go to test page</Link>
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Login />, rootElement);
-
 
 export default Login;

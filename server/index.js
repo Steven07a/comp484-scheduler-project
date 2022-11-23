@@ -1,13 +1,20 @@
 // imports
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
-
-const TestModel = require("./models/Test")
+import express from "express";
+// library to commuicate with mongodb server
+import mongoose from "mongoose";
+// library that allows us to call our own api's
+import cors from "cors";
+import cookieParser from "cookie-parser"
+// api's wrritten by us
+import userController from "./controllers/users.js";
 
 // allows us to pass data from backend to frontend in json format
-app.use(express.json())
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(cookieParser());
 
+// db connection
 mongoose.connect(
   "mongodb+srv://admin:8dlmgtkGBTNfIKLc@484project.hhmvxhh.mongodb.net/?retryWrites=true&w=majority",
   {
@@ -15,18 +22,10 @@ mongoose.connect(
   }
 );
 
+// wrapper for all api funcitons w/ routes
+app.use("/api/user", userController)
 
-app.post("/insert", (req,res) => {
-    const test = new TestModel({name: "jack", password: "asd", email: "test@email.com"});
-
-    try {
-        test.save();
-        res.send("data was inserted");
-    } catch (err) {
-        console.log(err)
-    }
-})
 
 app.listen(3001, () => {
-    console.log("server is running on port 3001")
-})
+  console.log("server is running on port 3001");
+});
