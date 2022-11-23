@@ -15,7 +15,8 @@ function createData(name, characterclass, gearscore, server) {
 
 const rows = [
   createData("Artsaya", "Wardancer", 1480, "NAE-Regulus"),
-  createData("Areitsu", "Soulfist", 1445, "NAE-Regulus")
+  createData("Areitsu", "Soulfist", 1445, "NAE-Regulus"),
+  createData("bomb", "Soulfist", 2, "NAE-Regulus")
 ];
 
 
