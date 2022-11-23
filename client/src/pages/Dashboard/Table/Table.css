@@ -1,0 +1,30 @@
+.MuiTableRow-root > * {
+    padding: 10px;
+  }
+  
+  .MuiTableRow-root.MuiTableRow-head > * {
+    font-weight: bold !important;
+  }
+  
+  .Table td,
+  th {
+    border: none !important;
+  }
+  
+  .Table:first-child {
+    border-radius: 0.7rem !important;
+  }
+  .status {
+    padding: 8px;
+    border-radius: 6px;
+  }
+  
+  .Details {
+    color: #30a6d4 !important;
+  }
+  .Table h3{
+    font-size: 35px;
+  }  
+
+ 
+  

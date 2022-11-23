@@ -1,0 +1,12 @@
+.Dashboard{
+    /* padding-top: 1rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color:darkviolet;
+    font-size: 50px;
+}
+
+.Dashboard h1{
+    color:rgba(121, 248, 248, 0.836);
+}

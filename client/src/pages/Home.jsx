@@ -18,6 +18,9 @@ const Home = () => {
         <br></br>
         <br></br>
         <Link to={"/Test"}>Go to test page </Link>
+        <br></br>
+        <br></br>
+        <Link to={"Maindash"}>Go to Dashboard</Link>
       </div>
     </>
   );
