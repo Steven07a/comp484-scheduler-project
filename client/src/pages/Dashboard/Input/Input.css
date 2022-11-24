@@ -1,4 +1,4 @@
-.Dashboard{
+.RosterAndTime{
     /* padding-top: 1rem; */
     display: flex;
     flex-direction: column;
@@ -7,10 +7,6 @@
     font-size: 50px;
 }
 
-.Dashboard h1{
+.RosterAndTime h1{
     color:rgba(121, 248, 248, 0.836);
-}
-
-.Dashboard h2{
-    font-size: 30px;
 }
