@@ -5,20 +5,27 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
-import { spacing } from '@mui/system';
+import { createData } from '../RosterTable/RosterTable';
+import Checkbox from '@mui/material/Checkbox';
 
 
 export default function SelectVariants() {
-  const [classes, setClasses] = React.useState('');
-  const [servers, setServers] = React.useState('');
+  const [classes, setClasses] = React.useState("");
+  const [servers, setServers] = React.useState("");
+  const [time, setTime] = React.useState("");
 
-  const handleChange = (event) => {
-    setClasses(event.target.var);
-    setServers(event.target.var)
+  const handleChange1 = (event) => {
+    setClasses(event.target.value);
+  };
+  const handleChange2 = (event) => {
+    setServers(event.target.value);
+  };
+  const handleChange3 = (event) => {
+    setTime(event.target.value);
   };
 
   return (
-  <Box
+    <Box
     component="form"
     sx={{
       '& > :not(style)': { m: 1, width: '25ch' },
@@ -27,13 +34,13 @@ export default function SelectVariants() {
   >
     <div>
     <TextField id="standard-basic" label="Character Name" variant="standard" />
-      <FormControl variant="standard" sx={{mx: 'auto', minWidth: 100 }}>
+      <FormControl variant="standard" sx={{mx: 'auto', minWidth: 120 }}>
         <InputLabel id="Class">Class</InputLabel>
         <Select
           labelId="Class-label"
           id="Class-pick"
           value={classes}
-          onChange={handleChange}
+          onChange={handleChange1}
           label="Classes"
         >
           <MenuItem value="Paladin">Paladin</MenuItem>
@@ -63,7 +70,7 @@ export default function SelectVariants() {
           labelId="Server-label"
           id="Server-pick"
           value={servers}
-          onChange={handleChange}
+          onChange={handleChange2}
           label="Server"
         >
           <MenuItem value="NAE">North America East</MenuItem>
@@ -72,7 +79,26 @@ export default function SelectVariants() {
           <MenuItem value="SA">South America</MenuItem>
         </Select>
       </FormControl>
-      </div>
+    </div>
+    <div class="Time">
+      <h3>Time Availability</h3>
+      <FormControl variant="standard" sx={{minWidth: 200 }}>
+        <Select
+          labelId="Time-label"
+          id="Time-pick"
+          value={time}
+          onChange={handleChange3}
+          label="Time"
+        >
+          <MenuItem value="1">00:00 - 04:00</MenuItem>
+          <MenuItem value="2">04:00 - 08:00</MenuItem>
+          <MenuItem value="3">08:00 - 12:00</MenuItem>
+          <MenuItem value="4">12:00 - 16:00</MenuItem>
+          <MenuItem value="5">16:00 - 20:00</MenuItem>
+          <MenuItem value="6">20:00 - 00:00</MenuItem>
+        </Select>
+      </FormControl>
+     </div>
     </Box>
-  );
+  )
 }

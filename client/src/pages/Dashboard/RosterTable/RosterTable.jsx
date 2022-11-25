@@ -7,12 +7,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container"
-import List from "@mui/material/List"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import ListItemText from "@mui/material/ListItemText"
 import "./RosterTable.css";
 
-function createData(name, characterclass, gearscore, server) {
+export function createData(name, characterclass, gearscore, server) {
   return { name, characterclass, gearscore, server };
 }
 

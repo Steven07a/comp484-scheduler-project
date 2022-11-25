@@ -9,8 +9,14 @@
 
 .Dashboard h1{
     color:rgba(121, 248, 248, 0.836);
+    margin-top:10vh;
 }
 
 .Dashboard h2{
     font-size: 30px;
+}
+
+.Dashboard h3{
+    font-size: 24px;
+    color:indigo;
 }
