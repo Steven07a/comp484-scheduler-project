@@ -5,6 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
+import { Scheduler } from "@aldabil/react-scheduler";
+import { Button } from "@mui/material";
 import { createData } from '../RosterTable/RosterTable';
 import Checkbox from '@mui/material/Checkbox';
 
@@ -82,22 +84,32 @@ export default function SelectVariants() {
     </div>
     <div class="Time">
       <h3>Time Availability</h3>
-      <FormControl variant="standard" sx={{minWidth: 200 }}>
-        <Select
-          labelId="Time-label"
-          id="Time-pick"
-          value={time}
-          onChange={handleChange3}
-          label="Time"
-        >
-          <MenuItem value="1">00:00 - 04:00</MenuItem>
-          <MenuItem value="2">04:00 - 08:00</MenuItem>
-          <MenuItem value="3">08:00 - 12:00</MenuItem>
-          <MenuItem value="4">12:00 - 16:00</MenuItem>
-          <MenuItem value="5">16:00 - 20:00</MenuItem>
-          <MenuItem value="6">20:00 - 00:00</MenuItem>
-        </Select>
-      </FormControl>
+      <Scheduler
+      view="week"
+      day={null}
+      month={null}
+      week={{
+        weekDays: [0, 1, 2, 3, 4, 5],
+        weekStartOn: 6,
+        startHour: 0,
+        endHour: 24,
+        step: 240,
+        cellRenderer: ({ height, start, onClick, ...props }) => {
+          // Fake some condition up
+          const hour = start.getHours();
+          return (
+            <Button
+              style={{
+                height: "100%",
+              }}
+              onClick={() => {
+                onClick();
+              }}
+            ></Button>
+          );
+        }
+      }}
+    />
      </div>
     </Box>
   )
