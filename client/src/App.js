@@ -10,8 +10,8 @@ import './App.css';
 import Home from "../src/pages/Home"
 import Test from "../src/pages/Test"
 import Login from "../src/pages/Login";
-import Navbar from "./components/Navbar"
-import MainDash from "./pages/Dashboard/Dashboard"
+import Navbar from "../src/components/Navigation/Navbar"
+import Profile from "./pages/Dashboard/Dashboard"
 
 const Layout = () => {
   // uncomment this code if u want to have user auth on all pages that are not login or register
@@ -61,8 +61,8 @@ const router = createBrowserRouter([
   //   element: <Register />,
   // },
   {
-      path: "/maindash",
-      element: <MainDash />
+      path: "/Profile",
+      element: <Profile />
   },
 ]);
 

@@ -1,22 +1,28 @@
 .Dashboard{
     /* padding-top: 1rem; */
-    display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
-    color:darkviolet;
-    font-size: 50px;
-}
-
-.Dashboard h1{
+    color:rgb(59, 185, 28);
+  }
+  
+  .Dashboard h1{
     color:rgba(121, 248, 248, 0.836);
-    margin-top:10vh;
-}
-
-.Dashboard h2{
-    font-size: 30px;
-}
-
-.Dashboard h3{
+    margin-top:2vh;
+  }
+  
+  .Dashboard h2{
+    font-size: 0px;
+  }
+  
+  .Dashboard h3{
     font-size: 24px;
     color:indigo;
-}
+  }
+  .Time{
+    color:rgba(0, 0, 0, 0.836);
+    float: left;
+    width: 50%;
+  }
+
+  .Time h3{
+    font-size: 20px;
+  }

@@ -24,49 +24,7 @@ export default function SelectedMenu() {
 
   return (
     <div className="Dashboard">
-       <Button
-        sx={{ml: 'auto', minWidth: 100 }}
-        id="menu-button"
-        aria-controls={open ? 'selected-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        variant="outlined"
-        color="primary"
-        onClick={handleClick}
-        startDecorator={<Apps />}
-      >
-        Menu
-      </Button>
-      <Menu
-        id="selected-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={createHandleClose()}
-        aria-labelledby="menu-button"
-      >
-        <MenuItem
-          {...(selectedIndex === 0 && { selected: true, variant: 'soft' })}
-          onClick={createHandleClose(0)}
-        >
-          Party Finder
-        </MenuItem>
-        <MenuItem
-          {...(selectedIndex === 1 && { selected: true, variant: 'soft' })}
-          onClick={createHandleClose(1)}
-        >
-          Roster Profile
-        </MenuItem>
-        <MenuItem
-          {...(selectedIndex === 2 && { selected: true, variant: 'soft' })}
-          onClick={createHandleClose(2)}
-        >
-          Log Out
-        </MenuItem>
-      </Menu>
       <h1>Dashboard</h1>
-      <br></br>
-      <br></br>
-      <h2>Enter your Roster Information here.</h2>
       <Input />
       <RosterTable />
     </div>

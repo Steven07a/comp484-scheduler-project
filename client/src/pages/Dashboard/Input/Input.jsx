@@ -1,4 +1,5 @@
 import * as React from 'react';
+import '../Dashboard.css'
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -35,6 +36,7 @@ export default function SelectVariants() {
     autoComplete="off"
   >
     <div>
+    <h3>Enter your Roster Information here.</h3>
     <TextField id="standard-basic" label="Character Name" variant="standard" />
       <FormControl variant="standard" sx={{mx: 'auto', minWidth: 120 }}>
         <InputLabel id="Class">Class</InputLabel>
@@ -89,13 +91,12 @@ export default function SelectVariants() {
       day={null}
       month={null}
       week={{
-        weekDays: [0, 1, 2, 3, 4, 5],
+        weekDays: [0, 1, 2, 3, 4, 5, 6],
         weekStartOn: 6,
         startHour: 0,
         endHour: 24,
         step: 240,
         cellRenderer: ({ height, start, onClick, ...props }) => {
-          // Fake some condition up
           const hour = start.getHours();
           return (
             <Button

@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container"
-import "./RosterTable.css";
+import '../RosterTable/RosterTable.css'
 
 export function createData(name, characterclass, gearscore, server) {
   return { name, characterclass, gearscore, server };
@@ -30,16 +30,16 @@ export default function BasicTable() {
       <div className="Table">
          <h3>Roster Profile</h3>
         <TableContainer
-          component={Paper}
+          component={Container}
           style={{ boxShadow: "10px 13px 20px 0px #80808029", borderColor: 'green' }}
         >
-          <Table sx={{ minWidth: 650, minHeight:300, backgroundColor: '#BDBBFF',}} aria-label="simple table">
+          <Table>
             <TableHead>
               <TableRow>
-                <TableCell sx={{fontSize: "30px", fontStyle: "italic"}}>Character List</TableCell>
-                <TableCell sx={{fontSize: "30px", fontStyle: "italic", align:"left"}}>Class</TableCell>
-                <TableCell sx={{fontSize: "30px", fontStyle: "italic", align:"left"}}>Gear Score</TableCell>
-                <TableCell sx={{fontSize: "30px", fontStyle: "italic", align:"left"}}>Server</TableCell>
+                <TableCell sx={{fontSize: "20px", fontStyle: "italic"}}>Character List</TableCell>
+                <TableCell sx={{fontSize: "20px", fontStyle: "italic", align:"left"}}>Class</TableCell>
+                <TableCell sx={{fontSize: "20px", fontStyle: "italic", align:"left"}}>Gear Score</TableCell>
+                <TableCell sx={{fontSize: "20px", fontStyle: "italic", align:"left"}}>Server</TableCell>
               </TableRow>
             </TableHead>
             <TableBody style={{ color: "white" }}>
@@ -48,12 +48,12 @@ export default function BasicTable() {
                   key={row.name}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 }}}
                 >
-                  <TableCell sx={{component:"th", scope:"row", fontSize: "30px" }}>
+                  <TableCell sx={{component:"th", scope:"row", fontSize: "20px" }}>
                     {row.name}
                   </TableCell>
-                  <TableCell sx={{fontSize: "30px", align:"left"}}>{row.characterclass}</TableCell>
-                  <TableCell sx={{fontSize: "30px", align:"left"}}>{row.gearscore}</TableCell>
-                  <TableCell sx={{fontSize: "30px", align:"left"}}>{row.server}</TableCell>
+                  <TableCell sx={{fontSize: "20px", align:"left"}}>{row.characterclass}</TableCell>
+                  <TableCell sx={{fontSize: "20px", align:"left"}}>{row.gearscore}</TableCell>
+                  <TableCell sx={{fontSize: "20px", align:"left"}}>{row.server}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
