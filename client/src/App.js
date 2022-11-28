@@ -12,6 +12,7 @@ import Test from "../src/pages/Test"
 import Login from "../src/pages/Login";
 import Navbar from "../src/components/Navigation/Navbar"
 import Profile from "./pages/Dashboard/Dashboard"
+import Raids from "./pages/Raidfinder/Raidfinder"
 
 const Layout = () => {
   // uncomment this code if u want to have user auth on all pages that are not login or register
@@ -61,16 +62,20 @@ const router = createBrowserRouter([
   //   element: <Register />,
   // },
   {
-      path: "Profile",
-      element: <Profile />
+    path: "Profile",
+    element: <Profile />
   },
+  {
+    path: "Raids",
+    element: <Raids />
+  }
 ]);
 
 function App() {
   return (
     <div className="App">
       <div>
-        <RouterProvider router={router}/>
+        <RouterProvider router={router} />
       </div>
     </div>
   );
