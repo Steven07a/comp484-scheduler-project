@@ -15,15 +15,6 @@ export function createData(user, name, characterclass, gearscore, server, timesl
 }
 
 const rows = [
-  createData("Arts", "Artsaya", "Wardancer", 1480, "NAE"),
-  createData("Arts", "Areitsu", "Soulfist", 1445, "NAE"),
-  createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-  createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-  createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-  createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-  createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-  createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-  createData("bunbohue", "bomb", "Soulfist", 2, "NAE")
 ];
 
 
@@ -37,10 +28,7 @@ export default function BasicTable() {
   return (
     <Container fixed>
       <div className="Table">
-        <TableContainer
-          component={Container}
-          style={{ boxShadow: "10px 13px 20px 0px #80808029", borderColor: 'green' }}
-        >
+        <TableContainer component={Container} style={{ boxShadow: "10px 13px 20px 0px #80808029", borderColor: 'green' }}>
           <Table>
             <TableHead>
               <TableRow>
@@ -50,13 +38,13 @@ export default function BasicTable() {
                 <TableCell sx={{ fontSize: "20px", fontStyle: "italic", align: "left" }}>Class</TableCell>
                 <TableCell sx={{ fontSize: "20px", fontStyle: "italic", align: "left" }}>Gear Score</TableCell>
                 <TableCell sx={{ fontSize: "20px", fontStyle: "italic", align: "left" }}>Server</TableCell>
-
                 <TableCell sx={{ fontSize: "20px", fontStyle: "italic", align: "left" }}>Timeslot</TableCell>
               </TableRow>
             </TableHead>
             <DragDropContext>
               <TableBody style={{ color: "white" }}>
                 {rows.map((row) => (
+                  //its using row.name as id
                   <TableRow key={row.name}sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                     <TableCell sx={{ component: "th", scope: "row", fontSize: "20px" }}><label><input type="checkbox" /></label></TableCell>
                     <TableCell sx={{ component: "th", scope: "row", fontSize: "20px" }}>{row.user}</TableCell>
