@@ -4,8 +4,11 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { useTheme } from '@mui/material/styles';
+import Chip from '@mui/material/Chip';
 import { Scheduler } from "@aldabil/react-scheduler";
 import { Button } from "@mui/material";
 import { createData } from '../RosterTable/RosterTable';
@@ -16,6 +19,38 @@ export default function SelectVariants() {
   const [classes, setClasses] = React.useState("");
   const [servers, setServers] = React.useState("");
   const [time, setTime] = React.useState("");
+  const [dayNames, setDayNames] = React.useState([]);
+  const [hourTimes, setHours] = React.useState([]);
+  const theme = useTheme();
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};  
+
+const days = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
+
+const hours = [
+  '00:00 - 04:00',
+  '04:00 - 08:00',
+  '08:00 - 12:00',
+  '12:00 - 16:00',
+  '16:00 - 20:00',
+  '20:00 - 24:00',
+];
 
   const handleChange1 = (event) => {
     setClasses(event.target.value);
@@ -24,8 +59,33 @@ export default function SelectVariants() {
     setServers(event.target.value);
   };
   const handleChange3 = (event) => {
-    setTime(event.target.value);
+    const {
+      target: { value },
+    } = event;
+    setHours(
+      typeof value === 'string' ? value.split(',') : value,
+    );
   };
+  const handleChange4 = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setDayNames(
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
+  function getStyles(days, weekDays, theme) {
+    return {
+      fontWeight:
+        dayNames.indexOf(days) === -1
+    };
+  }function getStyles(hours, theme) {
+    return {
+      fontWeight:
+        hourTimes.indexOf(hours) === -1
+    };
+  }
 
   return (
     <Box
@@ -85,32 +145,54 @@ export default function SelectVariants() {
       </FormControl>
     </div>
     <div class="Time">
-      <h3>Time Availability</h3>
-      <Scheduler
-      view="week"
-      day={null}
-      month={null}
-      week={{
-        weekDays: [0, 1, 2, 3, 4, 5, 6],
-        weekStartOn: 6,
-        startHour: 0,
-        endHour: 24,
-        step: 240,
-        cellRenderer: ({ height, start, onClick, ...props }) => {
-          const hour = start.getHours();
-          return (
-            <Button
-              style={{
-                height: "100%",
-              }}
-              onClick={() => {
-                onClick();
-              }}
-            ></Button>
-          );
-        }
-      }}
-    />
+      <h3>Availability</h3>
+      <FormControl sx={{ m: 1, width: 300 }}>
+      <InputLabel id="hours-label">Hours</InputLabel>
+      <Select
+          labelId="multiple-hours"
+          id="multiple-hours"
+          multiple
+          value={hourTimes}
+          onChange={handleChange3}
+          input={<OutlinedInput label="Days/Hours" />}
+          MenuProps={MenuProps}
+        >
+          {hours.map((hours) => (
+            <MenuItem
+              key={hours}
+              value={hours}
+              style={getStyles(hours, hourTimes, theme)}
+            >
+              {hours}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+      <FormControl sx={{ m: 1, width: 300 }}>
+        <InputLabel id="day-label">Days</InputLabel>
+        <Select
+          labelId="multiple-label"
+          id="multiple-days"
+          multiple
+          value={dayNames}
+          onChange={handleChange4}
+          input={<OutlinedInput label="Days/Hours" />}
+          MenuProps={MenuProps}
+        >
+          {days.map((days) => (
+            <MenuItem
+              key={days}
+              value={days}
+              style={getStyles(days, dayNames, theme)}
+            >
+              {days}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+
      </div>
     </Box>
   )
