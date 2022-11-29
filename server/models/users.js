@@ -15,6 +15,13 @@ const users = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  timeslot: {
+    type: String,
+  },
+  user: {
+    type: String,
+    unique: true,
+  }
 });
 
 const usersSchema = mongoose.model("Users", users);

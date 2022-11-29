@@ -47,10 +47,10 @@ const router = createBrowserRouter([
         path: "/test",
         element: <Test />,
       },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // }
+      {
+        path: "Raids",
+        element: <Raids />,
+      },
     ],
   },
   {
@@ -63,12 +63,12 @@ const router = createBrowserRouter([
   // },
   {
     path: "Profile",
-    element: <Profile />
+    element: <Profile />,
   },
-  {
-    path: "Raids",
-    element: <Raids />
-  }
+  // {
+  //   path: "Raids",
+  //   element: <Raids />
+  // }
 ]);
 
 function App() {
