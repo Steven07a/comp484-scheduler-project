@@ -79,7 +79,8 @@ const Login = () => {
           <Components.RightOverlayPanel signingIn={signIn}>
             <Components.Title2>Raid Finder and Scheduler</Components.Title2>
             <Components.Paragraph>
-              Looking for your next Deathless Clear?
+              Are you looking for your next Deathless Clear?
+              
             </Components.Paragraph>
             <Components.GhostButton onClick={() => toggle(false)}>
               Sign Up now
