@@ -14,7 +14,6 @@ export default function BasicTable(props) {
     const menuItems = [{}];
 
     return (
-        <Container fixed>
             <div className="miniTable">
                 <TableContainer
                     component={Container}
@@ -72,6 +71,5 @@ export default function BasicTable(props) {
                     <button>Edit Party</button>
                 </TableContainer>
             </div>
-        </Container>
     );
 }

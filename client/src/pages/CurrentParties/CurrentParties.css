@@ -1,22 +1,28 @@
-
-h1{
+h1 {
     font-weight: bolder;
     font-size: 30px;
 }
-.CurrentParties{
+
+#root {
+    margin: 300px;
+}
+
+.CurrentParties {
     background-color: white;
 }
 
-.tables-container{
-    display: block;
+.tables-container {
+    margin: auto;
+    width: 90%;
+    display: flexbox;
+    flex-wrap: wrap;
 }
 
-.miniTable{
-    width: 650px;
+.miniTable {
     padding: 30px;
 }
 
-.miniTable .raidinfo{
+.miniTable .raidinfo {
     font-weight: bolder;
     font-size: 20px;
 }

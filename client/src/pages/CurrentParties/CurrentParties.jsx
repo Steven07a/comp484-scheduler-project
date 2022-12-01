@@ -48,6 +48,8 @@ export default function SelectedMenu() {
           <MiniPartyTable rows={row2} raidinfo="Epic angry Boss Monster Raid"/>
           <MiniPartyTable rows={row3} raidinfo="Gahlee"/>
           <MiniPartyTable rows={row4} raidinfo="Raid raid"/>
+          <MiniPartyTable rows={row2} raidinfo="Epic angry Boss Monster Raid"/>
+          <MiniPartyTable rows={row} raidinfo="Boss Monster Raid 1"/>
       </div>
     </div>
   );
