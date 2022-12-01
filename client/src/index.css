@@ -87,3 +87,7 @@ code {
   font-size: 24px;
   color:indigo;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
