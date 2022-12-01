@@ -1,0 +1,8 @@
+.Input{
+    /* padding-top: 1rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color:darkviolet;
+    font-size: 50px;
+}

@@ -1,79 +1,94 @@
-import React from 'react'
-import '../components/LoginForm.css'
+import React, { useContext, useState } from "react";
+import * as Components from "../components/Components"
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"
+import { AuthContext } from "../context/authContext";
 
-class LoginForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            maskStyle: {
-                left: 512,
-                right: 0
-            }
-        }
+const Login = () => {
+  const [signIn, toggle] = React.useState(true);
+  const [inputs, setInputs] = useState({
+    name:"",
+    email:"",
+    password:"",
+  });
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-        this.container = React.createRef()
+  const handleChange = (e) => {
+    setInputs((prev) => ({
+      ...prev, 
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-        this.onSignIn = this.onSignIn.bind(this)
-        this.onSignUp = this.onSignUp.bind(this)
-
+  // tries to log user in if there is an error return error message
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    try{
+      await login(inputs);
+      // function to move us to another page
+      navigate("/")
+    } catch(err) {
+      console.log(err.response.data);
     }
-    componentDidMount() {
-      
-    }
-    componentWillUnmount() {
-        clearInterval(this.interval);
+  }
 
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    console.log("singup is called");
+    try {
+      const res = await axios.post("http://localhost:3001/api/user/register", inputs);
+      //console.log(res);
+    } catch (err) {
+      console.log(err.response.data);
     }
-
-    onSignUp() {
-        this.container.current.classList.add("right-panel-active");
-    }
-    onSignIn() {
-        debugger
-        this.container.current.classList.remove("right-panel-active");
-    }
-
-    render() {
-        const clipValue = `inset(0 ${this.state.maskStyle.left}px 0 ${this.state.maskStyle.right}px)`
-        // const clipValue =  `inset(0 200px 0 200px)`
-
-        return (
-            <div className="container" id="container" ref={this.container}>
-                <div className="form-container sign-up-container">
-                    <form action="#">
-                        <h4>Create Account</h4>
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <button onClick={this.onSignUp}>Sign Up</button>
-                    </form>
-                </div>
-                <div className="form-container sign-in-container">
-                    <form action="#">
-                        <h4>Sign in</h4>
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <a href="#">Forgot your password?</a>
-                        <button onClick={this.onSignIn}>Sign In</button>
-                    </form>
-                </div>
-                <div className="overlay-container">
-                    <div className="overlay">
-                        <div className="overlay-panel overlay-left">
-                            <h4>Your Static is Waiting for you.</h4>
-                            <p>Make sure you got everyone food and drinks.</p>
-                            <button className="ghost" id="signIn" onClick={this.onSignIn}>Log Back In</button>
-                        </div>
-                        <div className="overlay-panel overlay-right">
-                            <h4>Raid Finder and Scheduler</h4>
-                            <p>Looking for your next Deathless Clear?</p>
-                            <button className="ghost" id="signUp" onClick={this.onSignUp}>Sign Up Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  };
+  
+  return (
+    <Components.Container>
+      <Components.SignUpContainer signingIn={signIn}>
+        <Components.Form>
+          <Components.Title>Create Account</Components.Title>
+          <Components.Input type="text" placeholder="Name" name="name" onChange={handleChange} />
+          <Components.Input type="email" placeholder="Email" name="email" onChange={handleChange}/>
+          <Components.Input type="password" placeholder="Password" name="password" onChange={handleChange}/>
+          <Components.Button onClick={handleSignUp}>Sign Up</Components.Button>
+        </Components.Form>
+      </Components.SignUpContainer>
+      <Components.SignInContainer signingIn={signIn}>
+        <Components.Form>
+          <Components.Title>Login</Components.Title>
+          <Components.Input type="email" placeholder="Email" name="email" onChange={handleChange}/>
+          <Components.Input type="password" placeholder="Password" name="password" onChange={handleChange}/>
+          <Components.Anchor href="#">Forgot your password?</Components.Anchor>
+          <Components.Button onClick={handleSignIn}>Sign In</Components.Button>
+        
+        </Components.Form>
+      </Components.SignInContainer>
+      <Components.OverlayContainer signingIn={signIn}>
+        <Components.Overlay signingIn={signIn}>
+          <Components.LeftOverlayPanel signingIn={signIn}>
+            <Components.Title2>Your Static is Waiting for you.</Components.Title2>
+            <Components.Paragraph>
+              Make sure you got everyone food and drinks.
+            </Components.Paragraph>
+            <Components.GhostButton onClick={() => toggle(true)}>
+              Log back in
+            </Components.GhostButton>
+          </Components.LeftOverlayPanel>
+          <Components.RightOverlayPanel signingIn={signIn}>
+            <Components.Title2>Raid Finder and Scheduler</Components.Title2>
+            <Components.Paragraph>
+            Looking for your next Deathless Clear?
+            </Components.Paragraph>
+            <Components.GhostButton onClick={() => toggle(false)}>
+              Sign Up now
+            </Components.GhostButton>
+          </Components.RightOverlayPanel>
+        </Components.Overlay>
+      </Components.OverlayContainer>
+    </Components.Container>
+  );
 }
 
 export default LoginForm;

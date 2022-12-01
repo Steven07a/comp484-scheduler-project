@@ -1,0 +1,10 @@
+
+.tables-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.add-remove-buttons{
+    align-self: center;
+}
