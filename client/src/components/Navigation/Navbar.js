@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { AuthContext, logout } from "../../context/authContext"
+import { AuthContext } from "../../context/authContext"
 import React, { useContext } from "react";
 
 export default function Navbar() {
@@ -17,7 +17,7 @@ export default function Navbar() {
           </li>
           <li>
             {currentUser?.email ? (
-              <Link to={logout}>Logout</Link>
+              <Link to={logout()}>Logout</Link>
             ) : (
               <Link to={"Login"}>Login/Register</Link>
             )}
