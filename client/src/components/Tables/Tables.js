@@ -8,9 +8,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
-
 export default function BasicTable(props) {
   //const [checked, setChecked] = React.useState(false);
   const menuItems = [{}];
@@ -60,7 +57,6 @@ export default function BasicTable(props) {
                 </TableCell>
               </TableRow>
             </TableHead>
-            <DragDropContext>
               <TableBody style={{ color: "white" }}>
                 {props.rows.map((row) => (
                   <TableRow
@@ -99,7 +95,6 @@ export default function BasicTable(props) {
                   </TableRow>
                 ))}
               </TableBody>
-            </DragDropContext>
           </Table>
         </TableContainer>
       </div>

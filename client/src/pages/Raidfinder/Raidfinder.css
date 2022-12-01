@@ -8,3 +8,8 @@
 .add-remove-buttons{
     align-self: center;
 }
+
+h2{
+    font-size: 30px;
+    font-style: bold;
+}

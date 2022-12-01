@@ -13,6 +13,7 @@ import Login from "../src/pages/Login";
 import Navbar from "../src/components/Navigation/Navbar"
 import Profile from "./pages/Dashboard/Dashboard"
 import Raids from "./pages/Raidfinder/Raidfinder"
+import CurrentParties from "./pages/CurrentParties/CurrentParties"
 
 const Layout = () => {
   // uncomment this code if u want to have user auth on all pages that are not login or register
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "Raids",
         element: <Raids />,
+      },
+      {
+        path: "CurrentParties",
+        element: <CurrentParties />,
       },
     ],
   },
