@@ -44,14 +44,11 @@ export default function SelectedMenu() {
     <div className="CurrentParties">
       <h1>My Current Parties</h1>
       <div className="tables-container">
-        <span className="CharactersTable">
-          <Table rows={row} />
-          <Table rows={row2} />
-          <Table rows={row3} />
-          <Table rows={row4} />
-        </span>
+          <MiniPartyTable rows={row} raidinfo="Boss Monster Raid 1"/>
+          <MiniPartyTable rows={row2} raidinfo="Epic angry Boss Monster Raid"/>
+          <MiniPartyTable rows={row3} raidinfo="Gahlee"/>
+          <MiniPartyTable rows={row4} raidinfo="Raid raid"/>
       </div>
-      <button>Submit Party</button>
     </div>
   );
 };

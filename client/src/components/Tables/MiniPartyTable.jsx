@@ -9,21 +9,19 @@ import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 
 
-export default function BasicTable(props, raidInfo) {
+export default function BasicTable(props) {
     //const [checked, setChecked] = React.useState(false);
     const menuItems = [{}];
 
     return (
         <Container fixed>
             <div className="miniTable">
-                <div>{raidInfo}</div>
                 <TableContainer
                     component={Container}
                     style={{
                         boxShadow: "10px 13px 20px 0px #80808029",
-                        borderColor: "green",
-                    }}
-                >
+                        borderColor: "green",}}>
+                    <div className="raidinfo">{props.raidinfo}</div>
                     <Table>
                         <TableHead>
                             <TableRow>
@@ -45,32 +43,33 @@ export default function BasicTable(props, raidInfo) {
                                 </TableCell>
                             </TableRow>
                         </TableHead>
-                            <TableBody style={{ color: "white" }}>
-                                {props.rows.map((row) => (
-                                    <TableRow
-                                        key={row.name}
-                                        sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                        <TableBody style={{ color: "white" }}>
+                            {props.rows.map((row) => (
+                                <TableRow
+                                    key={row.name}
+                                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                                >
+                                    <TableCell
+                                        sx={{ component: "th", scope: "row", fontSize: "20px" }}
                                     >
-                                        <TableCell
-                                            sx={{ component: "th", scope: "row", fontSize: "20px" }}
-                                        >
-                                            {row.user}
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{ component: "th", scope: "row", fontSize: "20px" }}
-                                        >
-                                            {row.name}
-                                        </TableCell>
-                                        <TableCell sx={{ fontSize: "20px", align: "left" }}>
-                                            {row.characterclass}
-                                        </TableCell>
-                                        <TableCell sx={{ fontSize: "20px", align: "left" }}>
-                                            {row.gearscore}
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
+                                        {row.user}
+                                    </TableCell>
+                                    <TableCell
+                                        sx={{ component: "th", scope: "row", fontSize: "20px" }}
+                                    >
+                                        {row.name}
+                                    </TableCell>
+                                    <TableCell sx={{ fontSize: "20px", align: "left" }}>
+                                        {row.characterclass}
+                                    </TableCell>
+                                    <TableCell sx={{ fontSize: "20px", align: "left" }}>
+                                        {row.gearscore}
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
                     </Table>
+                    <button>Edit Party</button>
                 </TableContainer>
             </div>
         </Container>
