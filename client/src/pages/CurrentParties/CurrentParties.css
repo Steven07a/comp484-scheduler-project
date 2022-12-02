@@ -4,9 +4,6 @@
     font-size: 30px;
 }
 
-#root {
-    margin: 300px;
-}
 
 .CurrentParties {
     background-color: white;
@@ -15,11 +12,13 @@
 .CurrentParties .tables-container {
     margin: auto;
     width: 90%;
+    min-width: 1000px;
     display: flexbox;
     flex-wrap: wrap;
 }
 
 .CurrentParties .miniTable {
+    width: 450px;
     padding: 15px;
 }
 

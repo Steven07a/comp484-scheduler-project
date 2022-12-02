@@ -9,15 +9,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    background-color:rgba(104, 4, 199, 0.315);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: "Montserrat", sans-serif;
-    height: 100vh;
-    margin: -20px 0 50px;
-  }
+  background-color: rgba(104, 4, 199, 0.315);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  margin: -20px 0 50px;
+  padding: 3% 3%;
+}
 
 
 code {
@@ -28,21 +28,21 @@ code {
 .banner {
   background-image: url("../src/assets/background2.jpg");
   background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 0 0;
-	color: #FFFFFF;
+  background-size: cover;
+  background-position: 0 0;
+  color: #FFFFFF;
   text-shadow:
     -1.5px -1.5px 0 #000,
     1.5px -1.5px 0 #000,
     -1.5px 1.5px 0 #000,
     1.5px 1.5px 0 #000;
-	position: relative;
-	height: 100%;
-	border-radius: 10px;
-	overflow: hidden;
-	width: 1440px;
-	max-width: 100%;
-	min-height: 800px;
+  position: relative;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 1440px;
+  max-width: 100%;
+  min-height: 800px;
 }
 
 .banner h1 {
@@ -56,36 +56,36 @@ code {
 
 .profile {
   background-color: #830c0c;
-	color: black;
-	height: 100%;
-	border-radius: 10px;
-	overflow: hidden;
-	width: 1440px;
-	min-height: 800px;
+  color: black;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 1440px;
+  min-height: 800px;
   text-align: left;
   float: left;
   width: 50%;
 }
 
-.Dashboard{
+.Dashboard {
   justify-content: space-evenly;
-  color:rgb(22, 35, 109);
+  color: rgb(22, 35, 109);
   font-size: 40px;
-  height:auto;
+  height: auto;
 }
 
-.Dashboard h1{
-  color:rgba(121, 248, 248, 0.836);
-  margin-top:2vh;
+.Dashboard h1 {
+  color: rgba(121, 248, 248, 0.836);
+  margin-top: 2vh;
 }
 
-.Dashboard h2{
+.Dashboard h2 {
   font-size: 30px;
 }
 
-.Dashboard h3{
+.Dashboard h3 {
   font-size: 24px;
-  color:indigo;
+  color: indigo;
 }
 
 @tailwind base;
