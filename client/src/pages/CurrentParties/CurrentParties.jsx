@@ -40,16 +40,22 @@ export default function SelectedMenu() {
     createData("Arts", "Areitsu", "Soulfist", 1445)
   ];
 
+  const currentDate = new Date().toLocaleDateString('en-US')
+
+  function CreateMiniTable(row, raidinfoo, raidtimeslot) {
+    return <MiniPartyTable rows={row} raidinfo={raidinfoo} raidtimeslot={raidtimeslot} />
+  }
+
   return (
     <div className="CurrentParties">
       <h1>My Current Parties</h1>
       <div className="tables-container">
-          <MiniPartyTable rows={row} raidinfo="Boss Monster Raid 1"/>
-          <MiniPartyTable rows={row2} raidinfo="Epic angry Boss Monster Raid"/>
-          <MiniPartyTable rows={row3} raidinfo="Gahlee"/>
-          <MiniPartyTable rows={row4} raidinfo="Raid raid"/>
-          <MiniPartyTable rows={row2} raidinfo="Epic angry Boss Monster Raid"/>
-          <MiniPartyTable rows={row} raidinfo="Boss Monster Raid 1"/>
+        <MiniPartyTable rows={row} raidinfo="Boss Monster Raid 1" raidtimeslot={currentDate} />
+        <MiniPartyTable rows={row2} raidinfo="Epic angry Boss Monster Raid" raidtimeslot={currentDate} />
+        <MiniPartyTable rows={row3} raidinfo="Gahlee" raidtimeslot={currentDate} />
+        <MiniPartyTable rows={row4} raidinfo="Raid raid" raidtimeslot={currentDate} />
+        <MiniPartyTable rows={row2} raidinfo="Epic angry Boss Monster Raid" raidtimeslot={currentDate} />
+        <MiniPartyTable rows={row} raidinfo="Boss Monster Raid 2" raidtimeslot={currentDate} />
       </div>
     </div>
   );
