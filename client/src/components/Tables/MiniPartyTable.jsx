@@ -19,24 +19,23 @@ export default function BasicTable(props) {
                     component={Container}
                     style={{
                         boxShadow: "10px 13px 20px 0px #80808029",
-                        borderColor: "green",}}>
+                        borderColor: "black",}}>
                     <div className="raidinfo">{props.raidinfo}</div>
+                    <div className="raidtimeslot">{props.raidtimeslot}</div>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell sx={{ fontSize: "20px", fontStyle: "italic" }}>
+                                <TableCell >
                                     User
                                 </TableCell>
-                                <TableCell sx={{ fontSize: "20px", fontStyle: "italic" }}>
+                                <TableCell >
                                     Character
                                 </TableCell>
                                 <TableCell
-                                    sx={{ fontSize: "20px", fontStyle: "italic", align: "left" }}
                                 >
                                     Class
                                 </TableCell>
                                 <TableCell
-                                    sx={{ fontSize: "20px", fontStyle: "italic", align: "left" }}
                                 >
                                     Gear Score
                                 </TableCell>
@@ -49,19 +48,17 @@ export default function BasicTable(props) {
                                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                                 >
                                     <TableCell
-                                        sx={{ component: "th", scope: "row", fontSize: "20px" }}
                                     >
                                         {row.user}
                                     </TableCell>
                                     <TableCell
-                                        sx={{ component: "th", scope: "row", fontSize: "20px" }}
                                     >
                                         {row.name}
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: "20px", align: "left" }}>
+                                    <TableCell >
                                         {row.characterclass}
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: "20px", align: "left" }}>
+                                    <TableCell >
                                         {row.gearscore}
                                     </TableCell>
                                 </TableRow>
