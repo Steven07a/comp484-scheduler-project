@@ -13,13 +13,14 @@ export function createData(name, characterclass, gearscore, server) {
   return { name, characterclass, gearscore, server };
 }
 
-const rows = [
-  createData("Artsaya", "Wardancer", 1480, "NAE"),
-  createData("Areitsu", "Soulfist", 1445, "NAE"),
-  createData("bomb", "Soulfist", 2, "NAE")
-];
+// const rows = [
+//   createData("Artsaya", "Wardancer", 1480, "NAE"),
+//   createData("Areitsu", "Soulfist", 1445, "NAE"),
+//   createData("bomb", "Soulfist", 2, "NAE")
+// ];
+// const rows=[];
 
-export default function BasicTable() {
+export default function BasicTable({characterList}) {
   const menuItems = [
     {
 
@@ -43,7 +44,7 @@ export default function BasicTable() {
               </TableRow>
             </TableHead>
             <TableBody style={{ color: "white" }}>
-              {rows.map((row) => (
+              {characterList.map((row) => (
                 <TableRow
                   key={row.name}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 }}}
@@ -51,8 +52,8 @@ export default function BasicTable() {
                   <TableCell sx={{component:"th", scope:"row", fontSize: "20px" }}>
                     {row.name}
                   </TableCell>
-                  <TableCell sx={{fontSize: "20px", align:"left"}}>{row.characterclass}</TableCell>
-                  <TableCell sx={{fontSize: "20px", align:"left"}}>{row.gearscore}</TableCell>
+                  <TableCell sx={{fontSize: "20px", align:"left"}}>{row.class}</TableCell>
+                  <TableCell sx={{fontSize: "20px", align:"left"}}>{row.gearScore}</TableCell>
                   <TableCell sx={{fontSize: "20px", align:"left"}}>{row.server}</TableCell>
                 </TableRow>
               ))}

@@ -5,6 +5,7 @@ import React, { useContext } from "react";
 
 export default function Navbar() {
   const { currentUser, logout } = useContext(AuthContext)
+  
   return (
     <nav className="nav">
       <a href="/">Home</a>
@@ -20,7 +21,9 @@ export default function Navbar() {
         </li>
         <li>
           {currentUser?.email ? (
-            <Link to={logout()}>Logout</Link>
+            <Link to={"/Login"} onClick={logout}>
+              Logout
+            </Link>
           ) : (
             <Link to={"Login"}>Login/Register</Link>
           )}
