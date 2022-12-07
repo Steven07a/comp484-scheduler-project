@@ -9,10 +9,23 @@ import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 
 export default function BasicTable(props) {
-  //const [checked, setChecked] = React.useState(false);
-  const menuItems = [{}];
+  
+  const menuItems = [];
+
+  const [isChecked, setChecked] = React.useState(false);
+
+  const handleChange = event => {
+    menuItems.forEach(element => menuItems.pop(element));
+    menuItems.length = 0;
+    var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+    for (var i = 0; i < checkboxes.length; i++) {
+      menuItems.push(checkboxes[i].id);
+    }
+    console.log(JSON.stringify(menuItems));
+  };
   
   return (
+    
     <Container fixed>
       <div className="Table">
         <TableContainer
@@ -67,7 +80,10 @@ export default function BasicTable(props) {
                       sx={{ component: "th", scope: "row", fontSize: "20px" }}
                     >
                       <label>
-                        <input type="checkbox" />
+                        <input type="checkbox"
+                        value={isChecked}
+                        onChange={handleChange}
+                        id={row.name} />
                       </label>
                     </TableCell>
                     <TableCell
