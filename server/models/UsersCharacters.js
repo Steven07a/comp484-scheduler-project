@@ -7,10 +7,14 @@ const usersCharacters = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  timeSlot: {
+    type: String,
+  },
   usersCharacter: [
     {
       name: {
         type: String,
+        unique: true,
       },
       class: {
         type: String,

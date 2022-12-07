@@ -11,7 +11,7 @@ import Home from "../src/pages/Home"
 import Test from "../src/pages/Test"
 import Login from "../src/pages/Login";
 import Navbar from "../src/components/Navigation/Navbar"
-import Profile from "./pages/Dashboard/Dashboard"
+import Profile from "./pages/Dashboard/Profile"
 import Raids from "./pages/Raidfinder/Raidfinder"
 import CurrentParties from "./pages/CurrentParties/CurrentParties"
 
@@ -56,6 +56,10 @@ const router = createBrowserRouter([
         path: "CurrentParties",
         element: <CurrentParties />,
       },
+      {
+        path: "Profile",
+        element: <Profile />,
+      },
     ],
   },
   {
@@ -66,10 +70,6 @@ const router = createBrowserRouter([
   //   path: "Register",
   //   element: <Register />,
   // },
-  {
-    path: "Profile",
-    element: <Profile />,
-  },
   // {
   //   path: "Raids",
   //   element: <Raids />

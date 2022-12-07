@@ -1,9 +1,13 @@
-import React from "react";
+import axios from "axios";
+import React, {useState} from "react";
+import { useEffect } from "react";
 import Table from "../../components/Tables/Tables"
 import "./Raidfinder.css";
 //import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
 export default function SelectedMenu() {
+  const [party, setParty] = useState([]);
+  const [possibleCharacters, setPossibleCharacters] = useState([]);
   function createData(
     user,
     name,
@@ -14,18 +18,21 @@ export default function SelectedMenu() {
   ) {
     return { user, name, characterclass, gearscore, server, timeslot };
   }
-  // all of this would be imported from db
-  const row = [
-    createData("Arts", "Artsaya", "Wardancer", 1480, "NAE", "Monday-Thurs 3+"),
-    createData("Arts", "Areitsu", "Soulfist", 1445, "NAE"),
-    createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-    createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-    createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-    createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-    createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-    createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-    createData("bunbohue", "bomb", "Soulfist", 2, "NAE"),
-  ];
+
+
+  useEffect(() => {
+    const fetchPossibleCharactersData = async () => {
+      try {
+        const res = await axios.post("http://localhost:3001/api/userCharacters/getAllCharacters");
+        setPossibleCharacters(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    
+    }
+    fetchPossibleCharactersData();
+  }, [])
+
   const row2=[];
 
   return (
@@ -33,7 +40,7 @@ export default function SelectedMenu() {
       <div className="tables-container">
         <span className="CharactersTable">
           <h2>Characters</h2>
-          <Table rows={row}/>
+          <Table rows={possibleCharacters}/>
         </span>
         <span className="add-remove-buttons">
           <button>&rarr;</button>

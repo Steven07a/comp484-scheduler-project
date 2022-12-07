@@ -106,6 +106,13 @@ export const Anchor = styled.a`
   margin: 15px 0;
 `;
 
+export const ErrorMessage = styled.p`
+  color: red;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+`;
+
 export const OverlayContainer = styled.div`
   position: absolute;
   top: 0;
