@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 export default function BasicTable(props) {
     //const [checked, setChecked] = React.useState(false);
     const menuItems = [{}];
+    console.log(props);
 
     return (
             <div className="miniTable">

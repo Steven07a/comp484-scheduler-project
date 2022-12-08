@@ -16,7 +16,7 @@ export default function SelectedMenu() {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const {currentUser} = useContext(AuthContext)
   const open = Boolean(anchorEl);
-  // daddy needs to make the db call and pass wo roster
+
   // input needs to tell me to refetch data
   const [characterList, setCharacterList] = React.useState([
     {

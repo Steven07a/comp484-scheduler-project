@@ -21,7 +21,8 @@ export default function BasicTable(props) {
     for (var i = 0; i < checkboxes.length; i++) {
       menuItems.push(checkboxes[i].id);
     }
-    console.log(JSON.stringify(menuItems));
+    //console.log(menuItems);
+    props.setCurrentlySelected(menuItems);
   };
   
   return (
