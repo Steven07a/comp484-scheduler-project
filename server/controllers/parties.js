@@ -5,10 +5,13 @@ const router = express.Router();
 
 // creates a party from the info given
 router.post("/makeParty", async (req, res) => {
-    // console.log(req.body);
+    console.log(req.body.characters.length);
+    if(req.body.characters.length == 0) return res.status(409).json("Party cannot be empty"); 
+    
     const party = new partiesSchema(req.body)
-
     party.save();
+
+    return res.status(200).json("Party was made");    
 });
 
 router.post("/getAllParties" , async (req,res) => {

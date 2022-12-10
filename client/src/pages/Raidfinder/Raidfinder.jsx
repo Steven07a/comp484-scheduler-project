@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Table from "../../components/Tables/Tables";
 import { AuthContext } from "../../context/authContext";
 import "./Raidfinder.css";
-//import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
+import { useNavigate } from "react-router-dom";
 
 export default function SelectedMenu() {
   const [party, setParty] = useState([]);
@@ -13,6 +13,7 @@ export default function SelectedMenu() {
   const [currentlySelected, setCurrentlySelected] = useState();
   const [partyName, setPartyName] = useState("");
   const {currentUser} = useContext(AuthContext)
+  const navigate = useNavigate();
 
   // on page load get all characters and add them to a list
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function SelectedMenu() {
     setPartyName(e.target.value);
   }
 
+  // on submit refreshes page if pushing party is possible
   const handleSubmit = async (e) => {
     e.preventDefault();
     let PartyInfo = {
@@ -43,6 +45,7 @@ export default function SelectedMenu() {
     }
     try {
       const res = await axios.post("http://localhost:3001/api/parties/makeParty", PartyInfo);
+      navigate(0);
     } catch (err) {
       console.log(err)
     }
@@ -51,8 +54,10 @@ export default function SelectedMenu() {
 
   const moveToParty = async () => {
     // sets the party to be all characters currently selected
-    setParty(
-      possibleCharacters.filter((item) => currentlySelected.includes(item.name))
+    setParty((current) => [
+      ...current,
+      ...possibleCharacters.filter((item) => currentlySelected.includes(item.name))
+    ]
     );
     // sets possible characters to all characters except for those just moved
     setPossibleCharacters(
