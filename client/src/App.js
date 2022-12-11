@@ -1,14 +1,12 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
   Outlet,
-  useNavigate,
 } from "react-router-dom"
 
 import './App.css';
 import Home from "../src/pages/Home"
-import Test from "../src/pages/Test"
+import Test from "./pages/Test/Test"
 import Login from "../src/pages/Login";
 import Navbar from "../src/components/Navigation/Navbar"
 import Profile from "./pages/Dashboard/Profile"
@@ -45,10 +43,6 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/test",
-        element: <Test />,
-      },
-      {
         path: "Raids",
         element: <Raids />,
       },
@@ -65,6 +59,10 @@ const router = createBrowserRouter([
   {
     path: "Login",
     element: <Login />,
+  },
+  {
+    path: "test",
+    element: <Test />,
   },
   // {
   //   path: "Register",

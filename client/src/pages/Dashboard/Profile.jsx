@@ -5,11 +5,6 @@ import "./Profile.css";
 import "../../components/Navigation/Navbar.css";
 import axios from "axios";
 import { AuthContext } from "../../context/authContext";
-import Button from "@mui/joy/Button";
-import Menu from "@mui/joy/Menu";
-import MenuItem from "@mui/joy/MenuItem";
-import Apps from "@mui/icons-material/Apps";
-import { Link } from "react-router-dom";
 
 export default function SelectedMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);

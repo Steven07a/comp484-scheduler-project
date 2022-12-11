@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import Table from "../../components/Tables/Tables"
 import {AuthContext} from "../../context/authContext"
 import MiniPartyTable from "../../components/Tables/MiniPartyTable"
 import axios from "axios";
 import "./CurrentParties.css";
-import { ListItem } from "@mui/material";
 
 export default function SelectedMenu() {
   function createData(
