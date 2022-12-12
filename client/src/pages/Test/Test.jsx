@@ -18,7 +18,7 @@ function Test() {
       <div>Hello World Page </div>
       <p>Counter: {counter}</p>
       <div>
-        <button onClick={increaseCounter} className="increase-count">
+        <button  onClick={increaseCounter} className="increase-count">
           +
         </button>
         <button onClick={decreaseCounter} className="increase-count">

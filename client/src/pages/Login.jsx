@@ -37,7 +37,10 @@ const Login = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/api/user/register", inputs);
+      const res = await axios.post("https://steven484.zhetus.com/api/user/register",
+        inputs
+      );
+      // const res = await axios.post("http://localhost:3001/api/user/register", inputs);
       toggle(!signIn);
     } catch (err) {
       setErrorMessage(err.response.data);

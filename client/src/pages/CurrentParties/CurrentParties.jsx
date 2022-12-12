@@ -52,9 +52,13 @@ export default function SelectedMenu() {
     const getAllParties = async () => {
       console.log(currentUser.user);
       const res = await axios.post(
-        "http://localhost:3001/api/parties/getAllParties",
+        "https://steven484.zhetus.com/api/parties/getAllParties",
         currentUser
       );
+      // const res = await axios.post(
+      //   "http://localhost:3001/api/parties/getAllParties",
+      //   currentUser
+      // );
       setParties(res.data);
     };
 

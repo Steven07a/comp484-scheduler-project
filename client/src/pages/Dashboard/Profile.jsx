@@ -27,9 +27,13 @@ export default function SelectedMenu() {
     const fetchData = async () => {
       console.log(currentUser)
       const res = await axios.post(
-        "http://localhost:3001/api/userCharacters/getCharacters",
+        "https://steven484.zhetus.com/api/userCharacters/getCharacters",
         currentUser
       );
+      // const res = await axios.post(
+      //   "http://localhost:3001/api/userCharacters/getCharacters",
+      //   currentUser
+      // );
       setCharacterList(res.data);
     }
     fetchData();

@@ -20,8 +20,11 @@ export default function SelectedMenu() {
     const fetchPossibleCharactersData = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:3001/api/userCharacters/getAllCharacters"
+          "https://steven484.zhetus.com/api/userCharacters/getAllCharacters"
         );
+        // const res = await axios.post(
+        //   "http://localhost:3001/api/userCharacters/getAllCharacters"
+        // );
         setPossibleCharacters(res.data);
       } catch (err) {
         console.log(err);
@@ -44,7 +47,8 @@ export default function SelectedMenu() {
       ]
     }
     try {
-      const res = await axios.post("http://localhost:3001/api/parties/makeParty", PartyInfo);
+      const res = await axios.post("https://steven484.zhetus.com/api/parties/makeParty",PartyInfo);
+      // const res = await axios.post("http://localhost:3001/api/parties/makeParty", PartyInfo);
       navigate(0);
     } catch (err) {
       console.log(err)

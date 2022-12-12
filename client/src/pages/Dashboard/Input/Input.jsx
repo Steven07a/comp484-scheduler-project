@@ -88,7 +88,10 @@ export default function SelectVariants({setCharacterList}) {
       availability: Availability,
     }
     console.log(userInfo)
-    const res = await axios.post( "http://localhost:3001/api/userCharacters/updateUsersTime", userInfo);
+    // const res = await axios.post( "http://localhost:3001/api/userCharacters/updateUsersTime", userInfo);
+    const res = await axios.post("https://steven484.zhetus.com/api/userCharacters/updateUsersTime",
+      userInfo
+    );
     console.log(res)
   };
 
@@ -106,9 +109,13 @@ export default function SelectVariants({setCharacterList}) {
   const handleAddingCharacter = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:3001/api/userCharacters/updateCharacters",
+      "https://steven484.zhetus.com/api/userCharacters/updateCharacters",
       characterInputs
     );
+    // const res = await axios.post(
+    //   "http://localhost:3001/api/userCharacters/updateCharacters",
+    //   characterInputs
+    // );
     setCharacterList(current => [...current, characterInputs])
   };
 
